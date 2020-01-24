@@ -11,15 +11,14 @@ router.get('/todos', (req, res) => {
           completed: !todo.completed
         }
       });
-      res.status(200).json(projects)
+      res.status(200).json(todos)
     })
     .catch((error) => {
       console.log(error);
-      res.status(500).json({message: 'Could not retrieve projects'})
+      res.status(500).json({message: 'Could not retrieve todo'})
     })
   })
 
-  
   router.get('/:id/resources', (req, res) => {
     Todos.findResource(req.params.id)
     .then(resources => {
@@ -35,7 +34,7 @@ router.get('/todos', (req, res) => {
     Todos.add(req.body)
     .then(todo => {
         todo.completed =  !todo.completed
-        res.status(201).json(project)
+        res.status(201).json(todo)
     })
     .catch(err => {
         console.log(err)

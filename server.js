@@ -6,6 +6,6 @@ server.use(express.json())
 server.use('/api/todos', TodoRouter);
 
 server.get('/', (req, res) => {
-    res.send('Node-DB-Challenge')
+    res.send('Lambda Node-DB-Challenge')
 })
 module.exports = server;
