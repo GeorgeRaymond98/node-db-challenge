@@ -1,11 +1,11 @@
 const express = require('express')
-const helment = require('helment')
 
 const server = express()
-const SchemeRouter = require('./schemes/scheme-router')
-
-server.use(helment())
+const TodoRouter = require('./routes/todos')
 server.use(express.json())
-server.use('/api/schemes', SchemeRouter);
+server.use('/api/todos', TodoRouter);
 
+server.get('/', (req, res) => {
+    res.send('Node-DB-Challenge')
+})
 module.exports = server;
