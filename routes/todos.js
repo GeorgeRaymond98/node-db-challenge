@@ -2,22 +2,22 @@ const express = require('express')
 const router = express.Router();
 const Todos = require('./resources')
 
-router.get('/todos', (req, res) => {
-    Todos.find()
-    .then(todos => {
-      todos = todos.map((todo) => {
-        return {
-          ...todo,
-          completed: !todo.completed
-        }
-      });
-      res.status(200).json(todos)
-    })
-    .catch((error) => {
-      console.log(error);
-      res.status(500).json({message: 'Could not retrieve todo'})
-    })
-  })
+// router.get('/todos', (req, res) => {
+//     Todos.find()
+//     .then(todos => {
+//       todos = todos.map((todo) => {
+//         return {
+//           ...todo,
+//           completed: !todo.completed
+//         }
+//       });
+//       res.status(200).json(todos)
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//       res.status(500).json({message: 'Could not retrieve todo'})
+//     })
+//   })
 
   router.get('/:id/resources', (req, res) => {
     Todos.findResource(req.params.id)
