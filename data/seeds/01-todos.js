@@ -1,25 +1,24 @@
 exports.seed = function(knex) {
-    return knex('todos').del()
+    // Deletes ALL existing entries
+    return knex('projects').truncate()
       .then(function () {
-        return knex('todos').insert([
-        {
-            id:1,
-            name: 'Office',
-            description:' Dont get fired',
-            completed:false
-        },
-        {
-            id:2,
-            name:'Bath',
-            description:'Get clean',
-            completed:false
-        },
-        {
-            id:3,
-            name:'Living',
-            description:' Stay alive',
-            completed:false
-        }
+        // Inserts seed entries
+        return knex('projects').insert([
+          {
+              id: 1, 
+              projectName: 'Office', 
+              projectDescription: 'Do work here'
+            },
+          {
+              id: 2, 
+              projectName: 'Bath', 
+              projectDescription: 'Become clean here'
+            },
+          {
+              id: 3, 
+              projectName: 'Living',
+              projectDescription: 'Try not to die here'
+            },
         ]);
       });
   };
