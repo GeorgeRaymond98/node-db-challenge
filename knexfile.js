@@ -1,5 +1,3 @@
-// Update with your config settings.
-
 module.exports = {
 
   development: {
@@ -11,9 +9,10 @@ module.exports = {
       directory: './data/migrations'
     },
     useNullAsDefault: true,
-  },
-  seeds: {
-    directory: './data/seeds'
+
+    seeds: {
+      directory: './data/seeds'
+    },
   },
    // add the following
    pool: {
